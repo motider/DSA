@@ -1,16 +1,16 @@
 class Solution(object):
     def searchRange(self, nums, target):
-        low = 0
-        high = len(nums) - 1
+        left = 0
+        right = len(nums) - 1
         x = []
         for index, i in enumerate(nums):
             if i == target:
                 x.append(index)  
 
             if target > i:
-                low += 1  
+                left += 1  
             if target < i:
-                high -= 1  
+                right -= 1  
 
         if x:
             result = [x[0], x[-1]]
