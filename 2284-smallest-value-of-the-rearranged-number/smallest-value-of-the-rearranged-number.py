@@ -1,41 +1,21 @@
-class Solution:
-    def smallestNumber(self, num: int) -> int:
-        if num > 0:
-                z = []
-                for i in str(num):
-                    z.append(int(i))
-                print(z)
-                lst = [x for x in z if x != 0]
-                print(lst)      
-                new = ""
-                up = min(lst)
-                new+=str(up)
-                print(new)
-                z.remove(min(lst))
-                print(z)
-                sor = sorted(z)
-                for yes in sor:
-                    new+=str(yes)
-                return int(new)
-        elif num < 0:
-            no = []
-            for j in str(abs(num)):
-                no.append(int(j))
-            print(no)
-            lsts = [y for y in no if y != 0]
-            print(lsts)
-            old = ""
-            down = max(lsts)
-            old+=str(down)
-            print(old)
-            no.remove(max(lsts))
-            print(no)
-            nope = sorted(no,reverse = True)
-            print(nope)
-            for mot in nope:
-                old+=str(mot)
-            p = -int(old)
+class Solution(object):
+    def smallestNumber(self, num):
+        x = list(str(num))
 
-            return p 
-        else:
-            return 0
+        if num > 0:
+            x.sort()
+            if '0' in x:
+                min_positive = min(n for n in x if int(n) > 0)
+                idx = x.index(min_positive) 
+                x[0], x[idx] = x[idx], x[0]
+        elif num < 0:
+            x.remove('-') 
+            x.sort(reverse=True)
+            x.insert(0, "-")
+
+        return int("".join(x))
+        """
+        :type num: int
+        :rtype: int
+        """
+        
