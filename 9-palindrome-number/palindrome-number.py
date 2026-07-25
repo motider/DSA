@@ -1,15 +1,17 @@
-class Solution:
-    def isPalindrome(self, x: int) -> bool:
-        if x<0:
-            return False
-        original= x
-        reversed= 0
-        while x>0:
-            digit =x%10
-            reversed = reversed *10 + digit
-            x= x//10
-        return original == reversed
-            
+class Solution(object):
+    def isPalindrome(self, x):
+        y = str(x)
+        z = y[::-1]
 
-            
+        for i in range(len(y)):
+            if y[i] != z[i]:
+                return False
+                break
+        else:
+            return True
+
+        """
+        :type x: int
+        :rtype: bool
+        """
         
