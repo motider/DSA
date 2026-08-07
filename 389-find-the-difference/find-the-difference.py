@@ -1,13 +1,19 @@
 class Solution(object):
     def findTheDifference(self, s, t):
-        from collections import Counter
+        x = list(s)
+        y = list(t)
+        x.sort()
+        y.sort()
+        x.append(0)
 
+        ans = ""
+        for i in range(len(x)):
+            if x[i] != y[i]:
+                ans+=y[i]
+                break
+            
+        return ans
 
-        x = Counter(s)
-        y = Counter(t)
-
-        new = y - x
-        return list(new.elements())[0]
         """
         :type s: str
         :type t: str
