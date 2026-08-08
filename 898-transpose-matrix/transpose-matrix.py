@@ -1,9 +1,14 @@
-class Solution:
-    def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
-        count = []                         
-        for i in zip(*matrix):             
-            count.append(list(i))          
+class Solution(object):
+    def transpose(self, matrix):
+        new = []
 
-                            
-        return count
+        for i in zip(*matrix):
+            new.append(list(i))
+
+        return new
+
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[List[int]]
+        """
         
